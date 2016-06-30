@@ -399,7 +399,8 @@ public class Ruling extends Line2D.Float {
         if (lines.size() == 0) {
             return rv;
         }
-        Collections.sort(lines, new Comparator<Ruling>() {
+        
+        QuickSort.sort(lines, new Comparator<Ruling>() {
             @Override
             public int compare(Ruling a, Ruling b) {
                 return (int) (!Utils.feq(a.getPosition(), b.getPosition()) ? a.getPosition() - b.getPosition() : a.getStart() - b.getStart());

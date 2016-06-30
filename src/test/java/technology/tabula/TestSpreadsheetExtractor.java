@@ -576,7 +576,18 @@ public class TestSpreadsheetExtractor {
         // these (commented-out) tests reflect the theoretical correct answer,
         // which is not currently possible because of the two problems listed above
         // assertEquals("مرحباً",                       table.getRows().get(0).get(0).getText()); // really ought to be ً, but this is forgiveable for now
-
+    }
+    
+    @Test
+    public void testStableSort() throws IOException {
+    	Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/rulings_sort.pdf", 1);
+        SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
+        List<Table> tables = (List<Table>) sea.extract(page);
+        // assertEquals(1, tables.size());
+        Table table = tables.get(0);
+        
+        System.out.println(table);
+        
     }
 
 }
